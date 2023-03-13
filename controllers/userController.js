@@ -1,7 +1,15 @@
-import express from "express"
-import sequelize from "../database.js"
 import User from "../models/user.js"
 
-const app = express()
+const UserController = {
 
-app.get('/')
+  async getAll ( req, res ) {
+    const users = await User.findAll()
+    res.json( users )
+  },
+
+  getUser ( req, res ) {
+
+  }
+}
+
+export default UserController
