@@ -1,12 +1,15 @@
 import express from "express"
-import sequelize from "./database.js"
-import User from "./models/user.js"
 import mainRoutes from "./routes/main.js"
 import userRoutes from "./routes/user.js"
+import bodyParser from "body-parser"
 
 const app = express()
 // Server port
 const HTTP_PORT = 3000
+
+// config body parser
+app.use( bodyParser.json() )
+app.use( bodyParser.urlencoded({ extended: true }))
 
 // Routes
 app.use( mainRoutes )

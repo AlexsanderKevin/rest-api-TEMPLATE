@@ -19,6 +19,7 @@
   "author": "Kevin Alexsander de Jesus",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "express": "^4.18.2",
     "md5": "^2.3.0",
     "sequelize": "^6.29.3",
