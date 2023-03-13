@@ -16,6 +16,4 @@ app.use( mainRoutes )
 app.use( userRoutes )
 
 // Start server 
-app.listen( HTTP_PORT, () => {
-    console.log(`Server running at port: ${HTTP_PORT}`)
-})
+app.listen( HTTP_PORT, () => console.log(`Server running at port: ${HTTP_PORT}`))

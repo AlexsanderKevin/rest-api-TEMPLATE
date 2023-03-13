@@ -16,26 +16,20 @@ const UserController = {
 
     } catch ( error ) {
       console.log( error )
-      return res.status( 500 ).json({
-        message: 'Internal server error'
-      })
+      return res.status( 500 ).json({ message: 'Internal server error' })
     }
   },
 
   async getUser ( req, res ) {
     try {
       const { id } = req.params
-      const user = await User.findAll({
-        where: { id }
-      })
+      const user = await User.findByPk( id )
 
       res.json( user )
 
     } catch ( error ) {
       console.log( error )
-      return res.status( 500 ).json({
-        message: 'Internal server error'
-      })
+      return res.status( 500 ).json({ message: 'Internal server error' })
     }
   }
 }
