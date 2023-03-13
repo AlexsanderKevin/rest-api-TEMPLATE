@@ -1,5 +1,6 @@
 import express from "express"
-const db = require('./database')
+import sequelize from "./database.js"
+import User from "./models/user.js"
 
 const app = express()
 // Server port
@@ -14,3 +15,6 @@ app.listen( HTTP_PORT, () => {
 app.get('/', ( req, res ) => {
     res.json({ "message": "ok" })
 })
+
+const kevin = User.build({ name: "Kevin Alexsander" })
+await kevin.save()
