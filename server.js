@@ -1,11 +1,12 @@
 import express from "express"
-import mainRoutes from "./routes/main.js"
-import userRoutes from "./routes/user.js"
+import mainRoutes from "./src/routes/main.js"
+import userRoutes from "./src/routes/user.js"
 import bodyParser from "body-parser"
 import { initDatabase } from "./database.js"
 
 const app = express()
 
+// this creates and sync the database with the models
 initDatabase()
 
 // config body parser

@@ -6,7 +6,7 @@ const sequelize = new Sequelize({
 })
 
 export const initDatabase = () => {
-    sequelize.sync({ force: true }).then(() => {
+    sequelize.sync().then(() => {
         console.log('All tables created!')
     }).catch(( error ) => {
         console.error('Error creating tables:', error)
