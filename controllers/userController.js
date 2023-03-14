@@ -2,17 +2,17 @@ import User from "../models/user.js"
 
 const UserController = {
 
-  async getAll ( req, res ) {
+  getAll: async ( req, res ) => {
     const users = await User.findAll()
-    res.json( users )
+    return res.status( 200 ).json( users )
   },
 
-  async createUser ( req, res ) {
-    try {
-      const { name } = req.body
-      const user = await User.create({ name })
+  createUser: async ( req, res ) => {
+    const { name } = req.body
 
-      return res.status( 201 ).json( user )
+    try {
+      const newUser = await User.create({ name })
+      return res.status( 201 ).json( newUser )
 
     } catch ( error ) {
       console.log( error )
@@ -20,12 +20,40 @@ const UserController = {
     }
   },
 
-  async getUser ( req, res ) {
-    try {
-      const { id } = req.params
-      const user = await User.findByPk( id )
+  getUser: async ( req, res ) => {
+    const { id } = req.params
 
-      res.json( user )
+    try {
+      const user = await User.findByPk( id )
+      return res.status( 200 ).json( user )
+
+    } catch ( error ) {
+      console.log( error )
+      return res.status( 500 ).json({ message: 'Internal server error' })
+    }
+  },
+
+  updateUser: async ( req, res ) => {
+    const { id } = req.params
+    const { name } = req.body
+    const updates = { name }
+
+    try {
+      const updatedUser = await User.update( updates, { where: { id }, returning: true })
+      return res.status( 204 ).json( updatedUser )
+
+    } catch ( error ) {
+      console.log( error )
+      return res.status( 500 ).json({ message: 'Internal server error' })
+    }
+  },
+
+  deleteUser: async ( req, res ) => {
+    const { id } = req.params
+
+    try {
+      const deletedUser = await User.destroy({ where: { id }})
+      return res.status( 204 ).json( deletedUser )
 
     } catch ( error ) {
       console.log( error )
