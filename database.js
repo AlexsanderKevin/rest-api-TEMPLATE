@@ -5,4 +5,12 @@ const sequelize = new Sequelize({
     storage: './db.sqlite'
 })
 
+export const initDatabase = () => {
+    sequelize.sync({ force: true }).then(() => {
+        console.log('All tables created!')
+    }).catch(( error ) => {
+        console.error('Error creating tables:', error)
+    })
+}
+
 export default sequelize
