@@ -21,7 +21,6 @@ The project includes the following functionalities:
 The directory structure of the project is as follows:
 
 ```
-cssCopy code
 |- src/
     |- controllers/
     |- models/
