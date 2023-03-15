@@ -9,12 +9,13 @@ const UserController = {
 
   createUser: async ( req, res ) => {
     const { name } = req.body
+    const userDTO = { name }
 
     try {
-      const newUser = await User.create({ name })
+      const newUser = await User.create( userDTO )
       return res.status( 201 ).json( newUser )
-
-    } catch ( error ) {
+    } 
+    catch ( error ) {
       console.log( error )
       return res.status( 500 ).json({ message: 'Internal server error' })
     }
@@ -26,8 +27,8 @@ const UserController = {
     try {
       const user = await User.findByPk( id )
       return res.status( 200 ).json( user )
-
-    } catch ( error ) {
+    }
+    catch ( error ) {
       console.log( error )
       return res.status( 500 ).json({ message: 'Internal server error' })
     }
@@ -36,13 +37,13 @@ const UserController = {
   updateUser: async ( req, res ) => {
     const { id } = req.params
     const { name } = req.body
-    const updates = { name }
+    const userDTO = { name }
 
     try {
-      const updatedUser = await User.update( updates, { where: { id }, returning: true })
+      const updatedUser = await User.update( userDTO, { where: { id }, returning: true })
       return res.status( 204 ).json( updatedUser )
-
-    } catch ( error ) {
+    }
+    catch ( error ) {
       console.log( error )
       return res.status( 500 ).json({ message: 'Internal server error' })
     }
@@ -54,8 +55,8 @@ const UserController = {
     try {
       const deletedUser = await User.destroy({ where: { id }})
       return res.status( 204 ).json( deletedUser )
-
-    } catch ( error ) {
+    }
+    catch ( error ) {
       console.log( error )
       return res.status( 500 ).json({ message: 'Internal server error' })
     }
