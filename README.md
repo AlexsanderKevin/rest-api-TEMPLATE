@@ -6,6 +6,7 @@ This is a template project for creating RESTful APIs using Node.js and Express.j
 
 - Node.js
 - Express.js
+- Sequelize.js
 
 ## **Functionalities included**
 
