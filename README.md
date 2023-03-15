@@ -26,7 +26,6 @@ The directory structure of the project is as follows:
     |- models/
     |- routes/
 |- server.js
-
 ```
 
 - The **`src/controllers`** folder contains the controllers for the API.
