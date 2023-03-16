@@ -1,4 +1,4 @@
-# **RESTful API Template using Node.js and Express.js**
+# **[ BASIC ] RESTful API Template using Node.js and Express.js**
 
 This is a template project for creating RESTful APIs using Node.js and Express.js. It includes a basic set of functionalities and directory structure to help jumpstart API development quickly and easily.
 
@@ -43,6 +43,11 @@ To use this project as a template for your RESTful API, follow these steps:
 2. Install dependencies using **`npm install`** command
 3. Add your own routes, controllers, and models inside the **`src/routes`**, **`src/controllers`**, and **`src/models`** folders
 4. Start the server using the **`npm start`** command
+
+## **About the BASIC version**
+
+This branch contains the BASIC version, it doesn't have important features such as Authentication or Middleware support.
+The purpose of heaving a version like this is to build small applications, just for studying, as quick as possible.
 
 ## **Final thoughts**
 
